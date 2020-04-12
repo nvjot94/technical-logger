@@ -13,7 +13,7 @@ export const AddBtn = () => {
           </a>
         </li>
         <li>
-          <a href='#tech-modal' className='btn-floating red darken-1'>
+          <a href='#tech-modal' className='modal-trigger btn-floating red darken-1'>
             <i className='material-icons'>person_add</i>
           </a>
         </li>

@@ -9,6 +9,10 @@ export const AddLogModal = () => {
     if (message === "" || tech === "") {
       M.toast({ html: "please enter a message and a technician" });
     } else console.log(message, tech, attention);
+
+    setMessage("");
+    setAttention(false);
+    setTech("");
   };
   return (
     <div id='add-log-modal' className='modal' style={{ width: "75%", height: "75%" }}>

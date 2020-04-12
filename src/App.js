@@ -7,6 +7,8 @@ import SearchBar from "./components/layout/SearchBar";
 import Logs from "./components/logs/logs";
 import AddBtn from "./components/button/AddBtn";
 import AddLogModal from "./components/modal/AddLogModal";
+import EditLogModal from "./components/modal/EditLogModal";
+import AddTechModal from "./components/modal/AddTechModal";
 const App = () => {
   useEffect(() => {
     // init the materialise js
@@ -19,6 +21,8 @@ const App = () => {
         <Logs />
         <AddBtn />
         <AddLogModal />
+        <EditLogModal />
+        <AddTechModal />
       </div>
     </Fragment>
   );
