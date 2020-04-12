@@ -1,7 +1,8 @@
 {
-  "name": "it-logger",
+  "name": "technical-logger",
   "version": "0.1.0",
   "private": true,
+  "description": "a internal IT application to track, trace and resolve troubleshooting activities",
   "dependencies": {
     "materialize-css": "^1.0.0",
     "moment": "^2.24.0",
