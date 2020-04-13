@@ -13,45 +13,46 @@ export const AddTechModal = () => {
     setlastName("");
   };
   return (
-    <div id='#tech-modal' className='modal'>
-      <div className='modal-content'>
-        <h4>New Technician</h4>
-      </div>
+    <div id='tech-modal' className='modal' style={{ width: "40%", height: "50%" }}>
       <div className='row'>
-        {" "}
-        <div className='input-field'>
-          <input
-            name='firstName'
-            type='text'
-            value={firstName}
-            onChange={e => setfirstName(e.target.value)}
-          />
-          <label htmlFor='firstName' className='active'>
-            First Name
-          </label>
+        <div className='modal-content'>
+          <h4>New Technician</h4>
         </div>
-      </div>
-      <div className='row'>
-        <div className='input-field'>
-          <input
-            name='lastName'
-            type='text'
-            value={lastName}
-            onChange={e => setlastName(e.target.value)}
-          />
-          <label htmlFor='lastName' className='active'>
-            Last Name
-          </label>
+        <div className='row'>
+          <div className='input-field' style={{ width: "90%", "margin-left": "5%" }}>
+            <input
+              name='firstName'
+              type='text'
+              value={firstName}
+              onChange={e => setfirstName(e.target.value)}
+            />
+            <label htmlFor='firstName' className='active'>
+              First Name
+            </label>
+          </div>
         </div>
-      </div>
-      <div className='modal-footer'>
-        <a
-          href='#!'
-          onClick={submit}
-          className='modal-close waves-effect blue waves-green btn-flat'
-        >
-          Enter
-        </a>
+        <div className='row'>
+          <div className='input-field' style={{ width: "90%", "margin-left": "5%" }}>
+            <input
+              name='lastName'
+              type='text'
+              value={lastName}
+              onChange={e => setlastName(e.target.value)}
+            />
+            <label htmlFor='lastName' className='active'>
+              Last Name
+            </label>
+          </div>
+        </div>
+        <div className='modal-footer'>
+          <a
+            href='#!'
+            onClick={submit}
+            className='modal-close waves-effect blue waves-green btn-flat'
+          >
+            Enter
+          </a>
+        </div>
       </div>
     </div>
   );

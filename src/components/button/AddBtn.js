@@ -8,7 +8,7 @@ export const AddBtn = () => {
       </a>
       <ul>
         <li>
-          <a href='#tech-list-modal' className='btn-floating green'>
+          <a href='#tech-list-modal' className='modal-trigger btn-floating green'>
             <i className='material-icons'>person</i>
           </a>
         </li>
