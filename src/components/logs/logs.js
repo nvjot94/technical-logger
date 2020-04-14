@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import LogItem from "./logItem";
 import PreLoader from "../layout/PreLoader";
-const Logs = () => {
-  const [logs, setLogs] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const getLogs = async () => {
-    setLoading(true);
-    const res = await fetch("/logs");
-    const data = await res.json();
-    setLogs(data);
-  };
-
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { getLogs, setCurrent } from "../../redux/actions/LogActions";
+const Logs = ({ log: { logs, loading }, getLogs, setCurrent }) => {
   useEffect(() => {
     getLogs();
-    setLoading(false);
     //eslint-disable-next-line
   }, []);
 
-  if (loading) {
+  const onClick = log => {
+    setCurrent(log);
+  };
+
+  if (loading || logs === null) {
     return <PreLoader />;
   }
 
@@ -30,10 +26,19 @@ const Logs = () => {
       {!loading && logs.length === 0 ? (
         <p className='center'>No logs to show...</p>
       ) : (
-        logs.map(log => <LogItem log={log} key={log.id} />)
+        logs.map(log => <LogItem click={onClick} log={log} key={log.id} />)
       )}
     </ul>
   );
 };
 
-export default Logs;
+const mapStateToProps = state => ({
+  log: state.log
+});
+Logs.propTypes = {
+  log: PropTypes.object.isRequired
+};
+export default connect(
+  mapStateToProps,
+  { getLogs, setCurrent }
+)(Logs);

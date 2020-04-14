@@ -4,7 +4,8 @@ import {
   DELETE_LOG,
   UPDATE_LOG,
   LOGS_ERROR,
-  SET_LOADING
+  SET_LOADING,
+  SET_CURRENT
 } from "../actions/types";
 
 const initialState = {
@@ -16,6 +17,16 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case SET_CURRENT:
+      return {
+        ...state,
+        current: action.payload
+      };
+    case ADD_LOG:
+      return {
+        ...state,
+        logs: [...state.logs, action.payload]
+      };
     case SET_LOADING:
       return {
         ...state,

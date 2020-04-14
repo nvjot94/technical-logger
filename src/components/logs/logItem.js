@@ -2,11 +2,12 @@ import React from "react";
 import Moment from "react-moment";
 import PropTypes from "prop-types";
 
-const LogItem = ({ log }) => {
+const LogItem = ({ log, click }) => {
   return (
     <li className='collection-item'>
       <div>
         <a
+          onClick={() => click(log)}
           href='#edit-log-modal'
           className={`modal-trigger ${log.attention ? "red-text" : "blue-text"}`}
         >

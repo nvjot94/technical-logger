@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
-export const EditLogModal = () => {
+import { connect } from "react-redux";
+export const EditLogModal = ({ current }) => {
   const [message, setMessage] = useState("");
   const [tech, setTech] = useState("");
   const [attention, setAttention] = useState(false);
+
+  useEffect(() => {
+    if (current) {
+      setMessage(current.message);
+      setTech(current.tech);
+      setAttention(current.attention);
+    }
+  }, []);
 
   const onSubmit = () => {
     if (message === "" || tech === "") {
@@ -13,6 +22,7 @@ export const EditLogModal = () => {
     setAttention(false);
     setTech("");
   };
+
   return (
     <div id='edit-log-modal' className='modal' style={{ width: "75%", height: "75%" }}>
       <div className='modal-content'>
@@ -78,4 +88,7 @@ export const EditLogModal = () => {
   );
 };
 
-export default EditLogModal;
+const mapStateToProps = state => ({
+  current: state.log.current
+});
+export default connect(mapStateToProps)(EditLogModal);

@@ -32,7 +32,7 @@ export const AddTechModal = () => {
           </div>
         </div>
         <div className='row'>
-          <div className='input-field' style={{ width: "90%", "margin-left": "5%" }}>
+          <div className='input-field' style={{ width: "90%", marginLeft: "5%" }}>
             <input
               name='lastName'
               type='text'
