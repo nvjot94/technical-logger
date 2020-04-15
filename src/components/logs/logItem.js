@@ -2,7 +2,7 @@ import React from "react";
 import Moment from "react-moment";
 import PropTypes from "prop-types";
 
-const LogItem = ({ log, click }) => {
+const LogItem = ({ log, click, remove }) => {
   return (
     <li className='collection-item'>
       <div>
@@ -19,7 +19,7 @@ const LogItem = ({ log, click }) => {
           <span className='black-text'> {log.tech}</span> on{" "}
           <Moment format='MMMM Do YYYY,h:mm:ss a'>{log.date}</Moment>
         </span>
-        <a href='#!' className='secondary-content'>
+        <a href='#!' className='secondary-content' onClick={() => remove(log.id)}>
           <i className='material-icons grey-text'>delete</i>
         </a>
       </div>

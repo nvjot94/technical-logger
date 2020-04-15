@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
+import { addTech } from "../../redux/actions/TechActions";
+import { connect } from "react-redux";
 
-export const AddTechModal = () => {
+export const AddTechModal = ({ addTech }) => {
   const [firstName, setfirstName] = useState("");
   const [lastName, setlastName] = useState("");
 
   const submit = () => {
     if (firstName === "" || lastName === "") {
       M.toast({ html: "please enter first name and last name" });
-    } else console.log(firstName, lastName);
+    } else {
+      addTech({
+        firstName: `${firstName.charAt(0).toUpperCase() + firstName.slice(1)}`,
+        lastName: `${lastName.charAt(0).toUpperCase() + lastName.slice(1)}`
+      });
+    }
     setfirstName("");
     setlastName("");
   };
@@ -19,7 +26,7 @@ export const AddTechModal = () => {
           <h4>New Technician</h4>
         </div>
         <div className='row'>
-          <div className='input-field' style={{ width: "90%", "margin-left": "5%" }}>
+          <div className='input-field' style={{ width: "90%", marginLeft: "5%" }}>
             <input
               name='firstName'
               type='text'
@@ -58,4 +65,7 @@ export const AddTechModal = () => {
   );
 };
 
-export default AddTechModal;
+export default connect(
+  null,
+  { addTech }
+)(AddTechModal);

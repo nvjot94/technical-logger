@@ -1,35 +1,37 @@
 {
   "logs": [
     {
-      "message": "Changed network card in server 001",
+      "message": "Disk failure at workstation #002",
+      "attention": true,
+      "tech": "John Doe",
+      "id": 2,
+      "date": 1586956676164
+    },
+    {
+      "message": "Network repaired at workstation #03",
       "tech": "John Doe",
       "attention": false,
-      "date": 1586772799977,
-      "id": 1
+      "date": 1586955153840,
+      "id": 3
     },
     {
       "message": "Changed network card in server 008",
-      "tech": "John Doe",
+      "tech": "Rahul Dhiman",
       "attention": true,
-      "date": 1586772809211,
-      "id": 2
+      "date": 1586960431406,
+      "id": 4
     }
   ],
   "techs": [
     {
-      "id": 1,
-      "firstName": "John",
-      "lastName": "Doe"
+      "firstName": "Rahul",
+      "lastName": "Dhiman",
+      "id": 2
     },
     {
-      "id": 2,
-      "firstName": "Sam",
-      "lastName": "Smith"
-    },
-    {
-      "id": 3,
-      "firstName": "Sara",
-      "lastName": "Wilson"
+      "firstName": "Navjot",
+      "lastName": "Singh",
+      "id": 3
     }
   ]
 }

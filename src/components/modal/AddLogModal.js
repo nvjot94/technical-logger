@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
 import { connect } from "react-redux";
 import { addLog } from "../../redux/actions/LogActions";
-export const AddLogModal = ({ addLog }) => {
+import { stat } from "fs";
+export const AddLogModal = ({ addLog, techList }) => {
   const [message, setMessage] = useState("");
   const [tech, setTech] = useState("");
   const [attention, setAttention] = useState(false);
@@ -51,7 +52,14 @@ export const AddLogModal = ({ addLog }) => {
                 <option value='' disabled>
                   Select tech
                 </option>
-                <option value='John Doe'>John Doe</option>
+                {techList &&
+                  techList.map(tech => {
+                    return (
+                      <option value={`${tech.firstName} ${tech.lastName}`}>
+                        {tech.firstName} {tech.lastName}
+                      </option>
+                    );
+                  })}
               </select>
               <label htmlFor='message' className='active'>
                 Log Message
@@ -89,7 +97,10 @@ export const AddLogModal = ({ addLog }) => {
   );
 };
 
+const mapStateToProps = state => ({
+  techList: state.tech.techs
+});
 export default connect(
-  null,
+  mapStateToProps,
   { addLog }
 )(AddLogModal);
