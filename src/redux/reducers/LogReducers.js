@@ -12,7 +12,36 @@ import {
 } from "../actions/types";
 
 const initialState = {
-  logs: null,
+  logs: [
+    {
+      "message": "Disk failure at workstation #002",
+      "attention": true,
+      "tech": "John Doe",
+      "id": 2,
+      "date": 1586956676164
+    },
+    {
+      "message": "Network repaired at workstation #03",
+      "tech": "John Doe",
+      "attention": false,
+      "date": 1586955153840,
+      "id": 3
+    },
+    {
+      "message": "Changed network card in server 008",
+      "tech": "Rahul Dhiman",
+      "attention": true,
+      "date": 1586960431406,
+      "id": 4
+    },
+    {
+      "message": "qsdwqe",
+      "tech": "Navjot Singh",
+      "attention": true,
+      "date": 1588569087541,
+      "id": 5
+    }
+  ],
   loading: false,
   current: null,
   error: null,
@@ -79,7 +108,6 @@ export default (state = initialState, action) => {
     case GET_LOGS:
       return {
         ...state,
-        logs: action.payload,
         loading: false
       };
     default:

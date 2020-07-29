@@ -36,14 +36,14 @@ export const setCurrent = currentLog => async dispatch => {
 export const deleteLog = id => async dispatch => {
   try {
     setLoading();
-    const config = {
-      method: "DELETE",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    };
-    const res = await fetch(`/logs/${id}`, config);
+    // const config = {
+    //   method: "DELETE",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json"
+    //   }
+    // };
+    // const res = await fetch(`/logs/${id}`, config);
     dispatch({
       type: DELETE_LOG,
       payload: id
@@ -59,16 +59,16 @@ export const deleteLog = id => async dispatch => {
 export const updateLog = formData => async dispatch => {
   try {
     setLoading();
-    const config = {
-      method: "PUT",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ ...formData })
-    };
-    const res = await fetch(`/logs/${formData.id}`, config);
-    formData = await res.json();
+    // const config = {
+    //   method: "PUT",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify({ ...formData })
+    // };
+    // const res = await fetch(`/logs/${formData.id}`, config);
+    // formData = await res.json();
     dispatch({
       type: UPDATE_LOG,
       payload: formData
@@ -84,16 +84,16 @@ export const updateLog = formData => async dispatch => {
 //add log to DB
 export const addLog = formData => async dispatch => {
   try {
-    const config = {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ ...formData })
-    };
-    const res = await fetch("/logs", config);
-    console.log(await res.json());
+    // const config = {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify({ ...formData })
+    // };
+    // const res = await fetch("/logs", config);
+    // console.log(await res.json());
     dispatch({
       type: ADD_LOG,
       payload: formData
@@ -109,12 +109,11 @@ export const addLog = formData => async dispatch => {
 export const getLogs = () => async dispatch => {
   try {
     setLoading();
-    const res = await fetch("/logs");
-    const logs = await res.json();
+    // const res = await fetch("/logs");
+    // const logs = await res.json();
 
     dispatch({
-      type: GET_LOGS,
-      payload: logs
+      type: GET_LOGS
     });
   } catch (error) {
     dispatch({
